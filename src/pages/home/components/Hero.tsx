@@ -14,7 +14,7 @@ import { useEffect, useState } from 'react';
 import { FaGithub, FaInstagram, FaLinkedin, FaYoutube } from 'react-icons/fa';
 import { LuArrowRight } from 'react-icons/lu';
 import { Link } from 'react-router-dom';
-import photo from '@/assets/Ichlasul.jpg';
+import photo from '@/assets/ichlasul.jpg';
 import { SocialLink } from '@/components/SocialLink';
 
 const roles = ['Web Developer', 'Android Developer', 'Software Engineer'];
