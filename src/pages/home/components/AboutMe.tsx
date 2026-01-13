@@ -31,7 +31,7 @@ export const AboutMe = () => {
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top top',
-          end: '+=400%',
+          end: '+=200%',
           scrub: 1,
           pin: true
         }

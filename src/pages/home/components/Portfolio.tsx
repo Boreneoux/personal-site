@@ -145,7 +145,6 @@ export const Portfolio = () => {
         </style>
         <SectionHeading>featured works.</SectionHeading>
 
-        {/* Mobile Carousel */}
         <Box
           display={{ base: 'block', md: 'none' }}
           position="relative"
@@ -161,7 +160,6 @@ export const Portfolio = () => {
             } 0.4s ease-out`}>
             <PortfolioCard portfolio={displayedPortfolios[currentSlide]} />
 
-            {/* Carousel Controls */}
             <Flex
               position="absolute"
               top="50%"
@@ -170,8 +168,7 @@ export const Portfolio = () => {
               transform="translateY(-50%)"
               justify="space-between"
               px={2}
-              pointerEvents="none" // Click through container
-            >
+              pointerEvents="none">
               <IconButton
                 aria-label="Previous Project"
                 onClick={e => {
@@ -205,7 +202,6 @@ export const Portfolio = () => {
             </Flex>
           </Box>
 
-          {/* Indicators */}
           <Flex justify="center" gap={2} mt={4}>
             {displayedPortfolios.map((_, idx) => (
               <Box
@@ -220,7 +216,6 @@ export const Portfolio = () => {
           </Flex>
         </Box>
 
-        {/* Desktop Grid */}
         <SimpleGrid
           display={{ base: 'none', md: 'grid' }}
           columns={{ base: 1, md: 2 }}

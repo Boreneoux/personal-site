@@ -39,7 +39,7 @@ export const Contact = () => {
         <Text fontSize={{ base: 'lg', md: 'xl' }} color={textColor} mb={10}>
           You can contact me through my{' '}
           <Link
-            href="mailto:boreneoux@gmail.com"
+            href="mailto:ichlasul.ap@gmail.com"
             color="purple.500"
             fontWeight="bold"
             _hover={{ textDecoration: 'underline', color: 'purple.400' }}>
@@ -49,22 +49,22 @@ export const Contact = () => {
 
         <Flex justify="center" gap={8}>
           <SocialLink
-            href="https://linkedin.com"
+            href="https://linkedin.com/in/ichlasulfikri"
             icon={<FaLinkedin size={28} />}
             label="LinkedIn"
           />
           <SocialLink
-            href="https://github.com"
+            href="https://github.com/boreneoux"
             icon={<FaGithub size={28} />}
             label="GitHub"
           />
           <SocialLink
-            href="https://instagram.com"
+            href="https://instagram.com/ichlasulfikri_"
             icon={<FaInstagram size={28} />}
             label="Instagram"
           />
           <SocialLink
-            href="https://youtube.com"
+            href="https://youtube.com/ichlaso"
             icon={<FaYoutube size={28} />}
             label="YouTube"
           />

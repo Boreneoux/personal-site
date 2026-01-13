@@ -11,14 +11,14 @@ import {
 import { useColorModeValue } from '@/components/ui/color-mode';
 import { experiences } from '@/data/experiences';
 import { SectionHeading } from '@/components/SectionHeading';
-import gsap from 'gsap'; // Added gsap
-import { ScrollTrigger } from 'gsap/ScrollTrigger'; // Added ScrollTrigger
-import { useGSAP } from '@gsap/react'; // Added useGSAP
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 
-gsap.registerPlugin(ScrollTrigger); // Register ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
 
 export const Experiences = () => {
-  const containerRef = useRef<HTMLDivElement>(null); // Added ref
+  const containerRef = useRef<HTMLDivElement>(null);
   const titleColor = useColorModeValue('fg', 'white');
   const textColor = useColorModeValue('gray.600', 'gray.400');
   const dateColor = useColorModeValue('gray.500', 'gray.500');
