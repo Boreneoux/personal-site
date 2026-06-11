@@ -6,10 +6,13 @@ import {
   Image,
   VStack,
   HStack,
-  Badge,
+  Link,
   SimpleGrid,
   Separator
 } from '@chakra-ui/react';
+import { FaGithub } from 'react-icons/fa';
+import { LuExternalLink } from 'react-icons/lu';
+import { TechPillList } from '@/components/TechPill';
 import { useParams, Navigate } from 'react-router-dom';
 import { portfolios } from '@/data/portfolios';
 import { useColorModeValue } from '@/components/ui/color-mode';
@@ -52,13 +55,41 @@ export default function PortfolioDetail() {
           <Heading as="h1" size="3xl" color={titleColor} fontWeight="bold">
             {portfolio.title}
           </Heading>
-          <HStack gap={2} flexWrap="wrap">
-            {portfolio.techStack.map((tech, index) => (
-              <Badge key={index} colorPalette="purple" variant="surface">
-                {tech}
-              </Badge>
-            ))}
-          </HStack>
+          <TechPillList techStack={portfolio.techStack} />
+          {portfolio.links && portfolio.links.length > 0 && (
+            <HStack gap={3} flexWrap="wrap" pt={1}>
+              {portfolio.links.map((link, i) => (
+                <Link
+                  key={i}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  display="inline-flex"
+                  alignItems="center"
+                  gap={2}
+                  px={4}
+                  py={2}
+                  borderRadius="lg"
+                  border="1px solid"
+                  borderColor={link.type === 'live' ? 'purple.500/40' : 'gray.300'}
+                  color={link.type === 'live' ? 'purple.400' : textColor}
+                  fontSize="sm"
+                  fontWeight="600"
+                  transition="all 0.2s"
+                  _hover={{
+                    borderColor: 'purple.400',
+                    color: 'purple.400',
+                    transform: 'translateY(-1px)',
+                    textDecoration: 'none'
+                  }}>
+                  {link.type === 'live'
+                    ? <LuExternalLink size={14} />
+                    : <FaGithub size={14} />}
+                  {link.label}
+                </Link>
+              ))}
+            </HStack>
+          )}
         </VStack>
 
         <Image

@@ -5,10 +5,14 @@ import {
   Heading,
   Image,
   Text,
-  Badge,
+  HStack,
+  Link,
   VStack,
   Container
 } from '@chakra-ui/react';
+import { FaGithub } from 'react-icons/fa';
+import { LuExternalLink } from 'react-icons/lu';
+import { TechPillList } from '@/components/TechPill';
 import { useColorModeValue } from '@/components/ui/color-mode';
 import { portfolios } from '@/data/portfolios';
 import { useNavigate } from 'react-router-dom';
@@ -115,11 +119,45 @@ export default function Portfolio() {
                       }}>
                       <Heading
                         size="xl"
-                        mb={4}
+                        mb={3}
                         color={titleColor}
                         lineHeight="shorter">
                         {portfolio.title}
                       </Heading>
+                      {portfolio.links && portfolio.links.length > 0 && (
+                        <HStack gap={2} mb={4} flexWrap="wrap">
+                          {portfolio.links.map((link, i) => (
+                            <Link
+                              key={i}
+                              href={link.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={e => e.stopPropagation()}
+                              display="inline-flex"
+                              alignItems="center"
+                              gap={1.5}
+                              px={3}
+                              py={1.5}
+                              borderRadius="md"
+                              border="1px solid"
+                              borderColor={link.type === 'live' ? 'purple.500/40' : 'gray.300'}
+                              color={link.type === 'live' ? 'purple.400' : textColor}
+                              fontSize="xs"
+                              fontWeight="600"
+                              transition="all 0.2s"
+                              _hover={{
+                                borderColor: 'purple.400',
+                                color: 'purple.400',
+                                textDecoration: 'none'
+                              }}>
+                              {link.type === 'live'
+                                ? <LuExternalLink size={12} />
+                                : <FaGithub size={12} />}
+                              {link.label}
+                            </Link>
+                          ))}
+                        </HStack>
+                      )}
 
                       <Text
                         fontSize="md"
@@ -130,28 +168,7 @@ export default function Portfolio() {
                         {truncate(portfolio.shortDescription, 150)}
                       </Text>
 
-                      <Flex
-                        justify={{
-                          base: 'flex-start',
-                          md: isEven ? 'flex-start' : 'flex-end'
-                        }}
-                        flexWrap="wrap"
-                        gap={3}>
-                        {portfolio.techStack.map((tech, i) => (
-                          <Badge
-                            key={i}
-                            colorPalette="purple"
-                            variant="subtle"
-                            px={3}
-                            py={1.5}
-                            borderRadius="full"
-                            textTransform="none"
-                            fontSize="xs"
-                            fontWeight="bold">
-                            {tech}
-                          </Badge>
-                        ))}
-                      </Flex>
+                      <TechPillList techStack={portfolio.techStack} max={6} />
                     </Box>
                   </Flex>
                 </Box>

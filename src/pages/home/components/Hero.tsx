@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { FaGithub, FaInstagram, FaLinkedin, FaYoutube } from 'react-icons/fa';
-import { LuArrowRight } from 'react-icons/lu';
+import { LuArrowRight, LuDownload } from 'react-icons/lu';
 import { Link } from 'react-router-dom';
 import photo from '@/assets/ichlasul.jpg';
 import { SocialLink } from '@/components/SocialLink';
@@ -182,12 +182,13 @@ export const Hero = () => {
             maxW="2xl"
             lineHeight="relaxed"
             fontWeight="500">
-            I build accessible, pixel-perfect, performant, and premium web
-            experiences. Passionate about modern technologies and creating
-            intuitive user interfaces.
+            Full-stack engineer working across the delivery cycle — API design,
+            backend systems, and frontend with React & Next.js. Recently shipped
+            an AI-assisted fintech tool and a location-aware grocery platform.
+            Building things deliberately.
           </Text>
 
-          <HStack gap={4} pt={2}>
+          <HStack gap={4} pt={2} flexWrap="wrap">
             <Button
               asChild
               colorPalette="purple"
@@ -209,6 +210,18 @@ export const Hero = () => {
               px={8}
               borderColor="purple.500/30">
               <Link to="/#contact">Contact Me</Link>
+            </Button>
+            <Button
+              asChild
+              variant="ghost"
+              size="xl"
+              fontWeight="700"
+              borderRadius="xl"
+              px={8}
+              color="purple.500">
+              <a href="/resume.pdf" download="Ichlasul_Fikri_Resume.pdf">
+                <LuDownload /> Resume
+              </a>
             </Button>
           </HStack>
 

@@ -4,7 +4,6 @@ import { Skills } from './pages/home/components/Skills';
 import { Portfolio } from './pages/home/components/Portfolio';
 import { Experiences } from './pages/home/components/Experience';
 import { Contact } from './pages/home/components/Contact';
-import { Testimonials } from './pages/home/components/Testimonials';
 
 export default function App() {
   return (
@@ -14,7 +13,6 @@ export default function App() {
       <Skills />
       <Portfolio />
       <Experiences />
-      <Testimonials />
       <Contact />
     </>
   );
