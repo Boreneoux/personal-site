@@ -241,7 +241,7 @@ export const Hero = () => {
               borderColor="purple.500/40"
               color="purple.400"
               _hover={{ bg: 'purple.500/10', borderColor: 'purple.400' }}>
-              <a href="/resume.pdf" download="Resume_2026 Ichlasul Fikri.pdf">
+              <a href="/Resume_2026_Ichlasul_Fikri.pdf" download>
                 <LuDownload /> Resume
               </a>
             </Button>
