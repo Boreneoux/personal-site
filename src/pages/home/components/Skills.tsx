@@ -1,4 +1,4 @@
-import { Box, Container, Flex, Text, Icon, VStack } from '@chakra-ui/react';
+import { Box, Container, Flex, Text, Icon } from '@chakra-ui/react';
 import { useColorModeValue } from '@/components/ui/color-mode';
 import { SectionHeading } from '@/components/SectionHeading';
 import { skills } from '@/data/skills';
