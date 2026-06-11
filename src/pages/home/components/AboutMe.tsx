@@ -36,19 +36,40 @@ export const AboutMe = () => {
       if (!textRef.current) return;
 
       const words = textRef.current.querySelectorAll<HTMLElement>('.word');
-      gsap.set(words, { opacity: 0.15 });
+      const mm = gsap.matchMedia();
 
-      gsap.to(words, {
-        opacity: 1,
-        stagger: 0.04,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top top',
-          end: '+=220%',
-          scrub: 1.2,
-          pin: true
-        }
+      mm.add('(min-width: 768px)', () => {
+        gsap.set(words, { opacity: 0.15 });
+        gsap.to(words, {
+          opacity: 1,
+          stagger: 0.04,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: 'top top',
+            end: '+=220%',
+            scrub: 1.2,
+            pin: true,
+            invalidateOnRefresh: true
+          }
+        });
+      });
+
+      mm.add('(max-width: 767px)', () => {
+        gsap.set(words, { opacity: 0.15 });
+        gsap.to(words, {
+          opacity: 1,
+          stagger: 0.06,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: 'top top',
+            end: '+=160%',
+            scrub: 1,
+            pin: true,
+            invalidateOnRefresh: true
+          }
+        });
       });
     },
     { scope: containerRef }
@@ -64,41 +85,17 @@ export const AboutMe = () => {
       display="flex"
       alignItems="center"
       justifyContent="center"
-      position="relative"
-      overflow="hidden">
+      position="relative">
 
-      {/* Ambient orbs - CSS animation only, no GSAP movement */}
-      <Box
-        position="absolute"
-        top="-15%"
-        left="-10%"
-        w="700px"
-        h="700px"
-        bg="radial-gradient(circle, var(--chakra-colors-purple-500) 0%, transparent 65%)"
-        filter="blur(90px)"
-        zIndex={0}
-        css={{ animation: 'orb-breathe 20s ease-in-out infinite' }}
-      />
-      <Box
-        position="absolute"
-        bottom="-15%"
-        right="-10%"
-        w="800px"
-        h="800px"
-        bg="radial-gradient(circle, var(--chakra-colors-pink-500) 0%, transparent 65%)"
-        filter="blur(110px)"
-        zIndex={0}
-        css={{ animation: 'orb-breathe-alt 26s ease-in-out infinite' }}
-      />
 
       <Container
         maxW="3xl"
-        px={{ base: 8, md: 12 }}
-        py={{ base: 40, md: 32 }}
+        px={{ base: 6, md: 12 }}
+        py={{ base: 16, md: 32 }}
         position="relative"
         zIndex={1}>
 
-        <SectionHeading mb={10}>about me.</SectionHeading>
+        <SectionHeading mb={8}>about me.</SectionHeading>
 
         <Box
           ref={textRef}
@@ -112,7 +109,7 @@ export const AboutMe = () => {
                   key={`${sIdx}-${wIdx}`}
                   className="word"
                   fontSize={{
-                    base: sentence.large ? '2xl' : 'xl',
+                    base: sentence.large ? 'xl' : 'md',
                     md: sentence.large ? '4xl' : '2xl'
                   }}
                   fontWeight={sentence.large ? 'bold' : 'medium'}
@@ -124,7 +121,7 @@ export const AboutMe = () => {
                 </Text>
               ))}
               {sIdx < sentences.length - 1 && (
-                <Text as="span" fontSize={{ base: 'xl', md: '2xl' }} display="inline">
+                <Text as="span" fontSize={{ base: 'md', md: '2xl' }} display="inline">
                   {'  '}
                 </Text>
               )}

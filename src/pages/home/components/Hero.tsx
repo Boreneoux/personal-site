@@ -79,7 +79,7 @@ export const Hero = () => {
         borderRadius="full"
         filter="blur(120px)"
         zIndex={0}
-        opacity={{ base: 0.5, md: 0.3 }}
+        opacity={{ base: 0.3, md: 0.3 }}
       />
 
       <Box
@@ -114,6 +114,19 @@ export const Hero = () => {
         bgImage="radial-gradient(var(--chakra-colors-purple-500) 1.5px, transparent 0)"
         bgSize="32px 32px"
         zIndex={0}
+      />
+
+      <Box
+        position="absolute"
+        bottom={0}
+        left={0}
+        right={0}
+        h="200px"
+        bgGradient="to-b"
+        gradientFrom="transparent"
+        gradientTo="bg.canvas"
+        zIndex={1}
+        pointerEvents="none"
       />
 
       <Flex
@@ -188,11 +201,16 @@ export const Hero = () => {
             Building things deliberately.
           </Text>
 
-          <HStack gap={4} pt={2} flexWrap="wrap">
+          <Flex
+            gap={3}
+            pt={2}
+            direction={{ base: 'column', md: 'row' }}
+            w={{ base: 'full', md: 'auto' }}
+            align={{ base: 'stretch', md: 'flex-start' }}>
             <Button
               asChild
               colorPalette="purple"
-              size="xl"
+              size="lg"
               variant="solid"
               fontWeight="700"
               borderRadius="xl"
@@ -203,27 +221,31 @@ export const Hero = () => {
             </Button>
             <Button
               asChild
+              size="lg"
               variant="outline"
-              size="xl"
               fontWeight="700"
               borderRadius="xl"
               px={8}
-              borderColor="purple.500/30">
+              borderColor="purple.500"
+              color="purple.500"
+              _hover={{ bg: 'purple.500/10' }}>
               <Link to="/#contact">Contact Me</Link>
             </Button>
             <Button
               asChild
-              variant="ghost"
-              size="xl"
+              size="lg"
+              variant="outline"
               fontWeight="700"
               borderRadius="xl"
               px={8}
-              color="purple.500">
-              <a href="/resume.pdf" download="Ichlasul_Fikri_Resume.pdf">
+              borderColor="purple.500/40"
+              color="purple.400"
+              _hover={{ bg: 'purple.500/10', borderColor: 'purple.400' }}>
+              <a href="/resume.pdf" download="Resume_2026 Ichlasul Fikri.pdf">
                 <LuDownload /> Resume
               </a>
             </Button>
-          </HStack>
+          </Flex>
 
           <HStack gap={8} pt={6}>
             <SocialLink

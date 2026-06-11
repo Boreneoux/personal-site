@@ -12,9 +12,12 @@ import {
   SiMysql,
   SiCodeigniter,
   SiBun,
-  SiCloudflare
+  SiCloudflare,
+  SiStorybook,
+  SiAndroid,
+  SiDotnet
 } from 'react-icons/si';
-import { FaPhp } from 'react-icons/fa';
+import { FaPhp, FaDatabase } from 'react-icons/fa';
 import type { ElementType } from 'react';
 
 const extraIcons: Record<string, ElementType> = {
@@ -29,7 +32,12 @@ const extraIcons: Record<string, ElementType> = {
   'CodeIgniter 4': SiCodeigniter,
   'Bun': SiBun,
   'Cloudflare R2': SiCloudflare,
-  'PHP': FaPhp
+  'PHP': FaPhp,
+  'Storybook': SiStorybook,
+  'Android SDK': SiAndroid,
+  'MSSQL': FaDatabase,
+  '.NET': SiDotnet,
+  'Ext.NET': SiDotnet,
 };
 
 const skillIconMap: Record<string, ElementType> = Object.fromEntries(

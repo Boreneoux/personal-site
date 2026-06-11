@@ -1,4 +1,4 @@
-import { useRef } from 'react'; // Added useRef
+import { useRef } from 'react';
 import {
   Box,
   Container,
@@ -8,6 +8,7 @@ import {
   Text,
   List
 } from '@chakra-ui/react';
+import { TechPillList } from '@/components/TechPill';
 import { useColorModeValue } from '@/components/ui/color-mode';
 import { experiences } from '@/data/experiences';
 import { SectionHeading } from '@/components/SectionHeading';
@@ -125,22 +126,7 @@ export const Experiences = () => {
                     ))}
                   </List.Root>
 
-                  <Flex gap={2} flexWrap="wrap">
-                    {exp.techStack.map((tech, i) => (
-                      <Text
-                        key={i}
-                        fontSize="sm"
-                        color="gray.500"
-                        fontWeight="medium"
-                        _first={{ _before: { content: '""' } }}
-                        _before={{ content: '"•"', mx: 1, color: 'gray.300' }}
-                        css={{
-                          '&:first-of-type::before': { display: 'none' }
-                        }}>
-                        {tech}
-                      </Text>
-                    ))}
-                  </Flex>
+                  <TechPillList techStack={exp.techStack} />
                 </Box>
 
                 <Flex

@@ -69,7 +69,7 @@ const MarqueeRow = ({
 };
 
 export const Skills = () => {
-  const bgColor = useColorModeValue('gray.50', 'bg.canvas');
+  const bgColor = 'bg.canvas';
 
   const row1 = skills.slice(0, Math.ceil(skills.length / 2));
   const row2 = skills.slice(Math.ceil(skills.length / 2));
